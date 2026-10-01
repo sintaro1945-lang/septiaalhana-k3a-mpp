@@ -1,0 +1,7 @@
+{
+  "name": "PelitaNusantara Maritime - Sistem Manajemen Perusahaan Pelayaran",
+  "description": "Sistem manajemen perusahaan pelayaran terintegrasi dengan database real-time, master data armada & kru, transaksi muatan, laporan finansial, dan dashboard analitik operasional.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
