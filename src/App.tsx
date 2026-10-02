@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
-import { db, handleFirestoreError, OperationType } from './firebase';
+import { signInAnonymously } from 'firebase/auth';
+import { db, auth, handleFirestoreError, OperationType } from './firebase';
 import { seedInitialDataIfNeeded } from './seedData';
 import { UserProfile, Vessel, Route, Crew, Client, Booking, VoyageLog, MaintenanceRecord, MaritimeNotification } from './types';
 import { Login } from './components/Login';
@@ -34,6 +35,11 @@ export default function App() {
 
   useEffect(() => {
     async function init() {
+      try {
+        await signInAnonymously(auth);
+      } catch (err) {
+        console.warn('Auth fallback:', err);
+      }
       await seedInitialDataIfNeeded();
       setIsInitialized(true);
     }
